@@ -10,8 +10,7 @@ const routes: Routes = [{path:'home',component:HomeComponent},
                         {path:'about',component:AboutComponent},
                         {path:'createblog',component:BlogCreateComponent},
                         {path:'viewblog/:blogid',component:BlogViewComponent},
-                        {path:'editblog/:id',component:BlogEditComponent},
-                        {path:'**',component:NotFoundComponent}
+                        {path:'editblog/:id',component:BlogEditComponent}
                       ];
 
 @NgModule({

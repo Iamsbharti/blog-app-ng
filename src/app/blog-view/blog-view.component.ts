@@ -53,6 +53,8 @@ export class BlogViewComponent implements OnInit {
     this.getSingleBlogDetails(blogId);
   }
   getSingleBlogDetails = (blogId) => {
-    this.currentBlog = this.allBlogs[blogId];
+    console.log(blogId);
+    this.currentBlog = this.allBlogs.find((blog) => blog.id == blogId);
+    console.log(this.currentBlog);
   };
 }

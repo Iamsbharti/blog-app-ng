@@ -1,1 +1,26 @@
-<p>home works!</p>
+<div class="container">
+  <div class="container-fluid">
+    <p class="headerHome" style="margin-left: 4px;">All Blogs</p>
+    <div class="row">
+      <div class="col-sm" *ngFor="let blog of allBlogs">
+        <div class="card" style="width: 18rem;">
+          <img src="{{ blog.bg }}" class="card-img-top" alt="" />
+          <div class="card-body cardCustom">
+            <h5 class="card-title">{{ blog.title }}</h5>
+            <p class="card-text">
+              {{ blog.sampleTest }}
+            </p>
+
+            <div class="card-footer text-muted" style="margin-top: 2px;">
+              <a [routerLink]="['/viewblog', blog.id]" class="btn btn-primary"
+                >Read</a
+              >
+              <span class="cardfooter">{{ blog.created }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

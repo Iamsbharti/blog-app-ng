@@ -2,14 +2,30 @@
   <div class="container-fluid">
     <nav class="navbar navbar-expand-lg navbar-light">
       <a class="navbar-brand" href="/">
-      <img src="assets/book.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+        <img
+          src="assets/book.svg"
+          width="30"
+          height="30"
+          class="d-inline-block align-top"
+          alt=""
+        />
       </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-item nav-link active" [routerLink]="['/home']">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link active" [routerLink]="['/home']"
+            >Home <span class="sr-only">(current)</span></a
+          >
           <a class="nav-item nav-link" [routerLink]="['/about']">About</a>
           <a class="nav-item nav-link" [routerLink]="['/createblog']">Pen It</a>
         </div>
@@ -17,8 +33,10 @@
     </nav>
     <div class="primary bg-transparent">
       <h1 class="display-4 text-success">Thoughts!</h1>
-      <p class="lead text-black-50 ml-2 secondary">Don't wait just pen down whatever you think</p>  
-    </div> 
+      <p class="lead text-black-50 ml-2 secondary">
+        Don't wait just pen down whatever you think
+      </p>
+    </div>
   </div>
 </div>
 <router-outlet></router-outlet>

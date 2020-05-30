@@ -1,1 +1,16 @@
-<p>blog-view works!</p>
+<div class="container">
+  <div class="container-fluid">
+    <div class="blogbox" *ngIf="currentBlog">
+      <h1>
+        <span class="badge badge-primary">{{ currentBlog.title }}</span>
+      </h1>
+      <h5 class="badge">By {{ currentBlog.author }}</h5>
+      <p class="blogbody">{{ currentBlog.body }}</p>
+      <button class="btn btn-primary transparent">Edit</button>
+      <button class="btn btn-danger ml-4">Delete</button>
+      <div class="date">
+        <span class="text-muted">Last edited on {{ currentBlog.created }}</span>
+      </div>
+    </div>
+  </div>
+</div>

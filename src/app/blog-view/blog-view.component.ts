@@ -50,11 +50,9 @@ export class BlogViewComponent implements OnInit {
   ];
   ngOnInit(): any {
     const blogId = this._route.snapshot.paramMap.get('blogid');
-    console.log(blogId);
     this.getSingleBlogDetails(blogId);
   }
   getSingleBlogDetails = (blogId) => {
     this.currentBlog = this.allBlogs[blogId];
-    console.log(this.currentBlog);
   };
 }

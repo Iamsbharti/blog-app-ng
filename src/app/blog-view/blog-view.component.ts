@@ -11,14 +11,11 @@ export class BlogViewComponent implements OnInit {
     private _route: ActivatedRoute,
     private _router: Router,
     private blogService: BlogService
-  ) {
-    console.log(`${this._route}-${this._router}`);
-  }
+  ) {}
   public currentBlog: any;
 
   ngOnInit(): any {
     const blogId = this._route.snapshot.paramMap.get('blogid');
     this.currentBlog = this.blogService.getSingleBlogDetails(blogId);
-    console.log('current blog', this.currentBlog);
   }
 }

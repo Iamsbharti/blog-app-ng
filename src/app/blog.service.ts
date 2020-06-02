@@ -51,9 +51,7 @@ export class BlogService {
   }
   public currentBlog: any;
   public getSingleBlogDetails = (blogId) => {
-    console.log(blogId);
     this.currentBlog = this.allBlogs.find((blog) => blog.id == blogId);
-    console.log(this.currentBlog);
     return this.currentBlog;
   };
 }

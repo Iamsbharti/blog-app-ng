@@ -8,9 +8,13 @@
       <p class="blogbody">{{ currentBlog.body }}</p>
       <button class="btn btn-primary transparent">Edit</button>
       <button class="btn btn-danger ml-4">Delete</button>
+      <a [routerLink]="['/home']"
+        ><button class="btn btn-dark ml-5">Back</button></a
+      >
       <div class="date">
         <span class="text-muted">Last edited on {{ currentBlog.created }}</span>
       </div>
     </div>
   </div>
 </div>
+<router-outlet></router-outlet>

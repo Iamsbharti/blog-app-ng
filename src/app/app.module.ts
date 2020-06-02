@@ -9,6 +9,7 @@ import { BlogCreateComponent } from './blog-create/blog-create.component';
 import { BlogEditComponent } from './blog-edit/blog-edit.component';
 import { AboutComponent } from './about/about.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { BlogService } from './blog.service';
 
 @NgModule({
   declarations: [
@@ -18,13 +19,10 @@ import { NotFoundComponent } from './not-found/not-found.component';
     BlogCreateComponent,
     BlogEditComponent,
     AboutComponent,
-    NotFoundComponent
+    NotFoundComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  imports: [BrowserModule, AppRoutingModule],
+  providers: [BlogService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

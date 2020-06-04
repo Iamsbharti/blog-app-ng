@@ -5,6 +5,17 @@
         <span class="badge badge-primary">{{ currentBlog.title }}</span>
       </h1>
       <h5 class="badge">By {{ currentBlog.author }}</h5>
+      <h6 *ngIf="currentBlog.tags">
+        #Tags:
+        <span
+          *ngFor="
+            let tag of currentBlog.tags;
+            let first = first;
+            let last = last
+          "
+          >{{ tag }}{{ last ? "" : "," }}
+        </span>
+      </h6>
       <p class="blogbody">{{ currentBlog.description }}</p>
       <button class="btn btn-primary transparent">Edit</button>
       <button class="btn btn-danger ml-4">Delete</button>

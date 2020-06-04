@@ -22,6 +22,7 @@ import { BlogHttpService } from './blog-http.service';
     AboutComponent,
     NotFoundComponent,
   ],
+  //HttpClientModule is reuired for functioning of http requests
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [BlogService, BlogHttpService],
   bootstrap: [AppComponent],

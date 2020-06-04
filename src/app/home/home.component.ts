@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   public allBlogs: any;
   ngOnInit(): any {
     //this.allBlogs = this.blogService.getAllBlogs();
+    //subscribe is used beacuse http client return obervable object equivalent to promises
     this.allBlogs = this.httpBlogService.getAllBlogs().subscribe(
       (data) => {
         console.log(data);

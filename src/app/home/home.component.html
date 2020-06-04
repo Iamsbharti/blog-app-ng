@@ -1,8 +1,8 @@
 <div class="container">
   <div class="container-fluid">
     <p class="headerHome" style="margin-left: 4px;">All Blogs</p>
-    <div class="row" *ngIf="allBlogs.length > 0">
-      <div class="col-sm" *ngFor="let blog of allBlogs">
+    <div class="row">
+      <div class="col-md-4 mt-5" *ngFor="let blog of allBlogs">
         <div class="card" style="width: 18rem;">
           <img src="{{ blog.bg }}" class="card-img-top" alt="" />
           <div class="card-body cardCustom">
@@ -15,7 +15,7 @@
               <a [routerLink]="['/viewblog', blog.id]" class="btn btn-primary"
                 >Read</a
               >
-              <span class="cardfooter">{{ blog.created }}</span>
+              <span class="cardfooter">{{ blog.created | date }}</span>
             </div>
           </div>
         </div>

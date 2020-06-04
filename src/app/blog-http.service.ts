@@ -14,18 +14,17 @@ export class BlogHttpService {
 
   constructor(private _http: HttpClient) {
     console.log('Blog Http Servcie Init');
-    console.log(`${this.baseUrl}/all?${this.authToken}`);
   }
   public getAllBlogs(): any {
     let allBlogsResponse = this._http.get(
-      `${this.baseUrl}/all?${this.authToken}`
+      `${this.baseUrl}/all?authToken=${this.authToken}`
     );
     return allBlogsResponse;
   }
 
   public getBlogById(blogId): any {
     let singleBlogResponse = this._http.get(
-      `${this.baseUrl}/view?${this.authToken}`
+      `${this.baseUrl}/view?authToken=${this.authToken}`
     );
     return singleBlogResponse;
   }

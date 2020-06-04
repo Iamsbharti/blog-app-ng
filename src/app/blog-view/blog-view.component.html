@@ -5,7 +5,7 @@
         <span class="badge badge-primary">{{ currentBlog.title }}</span>
       </h1>
       <h5 class="badge">By {{ currentBlog.author }}</h5>
-      <h6 *ngIf="currentBlog.tags">
+      <h6 *ngIf="currentBlog.tags != undefined && currentBlog.tags.length > 0">
         #Tags:
         <span
           *ngFor="

@@ -15,13 +15,19 @@ export class BlogHttpService {
   constructor(private _http: HttpClient) {
     console.log('Blog Http Servcie Init');
   }
+  //handle exceptions
+  public handleError(error: HttpErrorResponse) {
+    console.log('Http error', error.message);
+    return Observable.throw(error.message);
+  }
+  //Fetch all blogs
   public getAllBlogs(): any {
     let allBlogsResponse = this._http.get(
       `${this.baseUrl}/all?authToken=${this.authToken}`
     );
     return allBlogsResponse;
   }
-
+  //get single blog
   public getBlogById(blogId): any {
     let singleBlogResponse = this._http.get(
       `${this.baseUrl}/view/${blogId}?authToken=${this.authToken}`

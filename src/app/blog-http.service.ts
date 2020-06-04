@@ -24,7 +24,7 @@ export class BlogHttpService {
 
   public getBlogById(blogId): any {
     let singleBlogResponse = this._http.get(
-      `${this.baseUrl}/view?authToken=${this.authToken}`
+      `${this.baseUrl}/view/${blogId}?authToken=${this.authToken}`
     );
     return singleBlogResponse;
   }

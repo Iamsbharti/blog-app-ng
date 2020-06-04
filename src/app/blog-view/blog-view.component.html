@@ -5,14 +5,16 @@
         <span class="badge badge-primary">{{ currentBlog.title }}</span>
       </h1>
       <h5 class="badge">By {{ currentBlog.author }}</h5>
-      <p class="blogbody">{{ currentBlog.body }}</p>
+      <p class="blogbody">{{ currentBlog.description }}</p>
       <button class="btn btn-primary transparent">Edit</button>
       <button class="btn btn-danger ml-4">Delete</button>
       <a [routerLink]="['/home']"
         ><button class="btn btn-dark ml-5">Back</button></a
       >
       <div class="date">
-        <span class="text-muted">Last edited on {{ currentBlog.created }}</span>
+        <span class="text-muted"
+          >Last edited on {{ currentBlog.created | date }}</span
+        >
       </div>
     </div>
   </div>

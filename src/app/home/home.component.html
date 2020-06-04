@@ -12,7 +12,9 @@
             </p>
 
             <div class="card-footer text-muted" style="margin-top: 2px;">
-              <a [routerLink]="['/viewblog', blog.id]" class="btn btn-primary"
+              <a
+                [routerLink]="['/viewblog', blog.blogId]"
+                class="btn btn-primary"
                 >Read</a
               >
               <span class="cardfooter">{{ blog.created | date }}</span>

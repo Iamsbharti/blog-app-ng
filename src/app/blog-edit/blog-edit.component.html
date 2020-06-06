@@ -1,1 +1,92 @@
-<p>blog-edit works!</p>
+<div class="container">
+  <div class="container-fluid">
+    <div clas="row">
+      <div class="formBox col-sm-8">
+        <form #editBlogForm="ngForm" (ngSubmit)="editBlog()">
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input
+              name="title"
+              [(ngModel)]="currentBlog.title"
+              #_title="ngModel"
+              type="text"
+              class="form-control"
+              required
+              placeholder="blog title"
+            />
+            <div
+              [hidden]="_title.valid || _title.pristine"
+              class="alert alert-danger"
+            >
+              Title is Required
+            </div>
+            <div>
+              <label for="category">Category</label>
+              <select
+                class="form-control"
+                name="category"
+                [(ngModel)]="currentBlog.category"
+                #_category="ngModel"
+                required
+              >
+                <option *ngFor="let group of allowedCategory" [value]="group">{{
+                  group
+                }}</option>
+              </select>
+            </div>
+            <div
+              [hidden]="_category.valid || _category.pristine"
+              class="alert alert-danger"
+            >
+              Category is Required
+            </div>
+            <div class="form-group">
+              <label for="blogBody">Blog Body</label>
+              <textarea
+                name="blogBody"
+                [(ngModel)]="currentBlog.bodyHtml"
+                #_blogBody="ngModel"
+                class="form-control"
+                required
+                placeholder="blog body"
+                row="2"
+              ></textarea>
+            </div>
+            <div
+              [hidden]="_blogBody.valid || _blogBody.pristine"
+              class="alert alert-danger"
+            >
+              Blog Body is required
+            </div>
+            <div class="form-group">
+              <label for="description">Description</label>
+              <textarea
+                name="description"
+                [(ngModel)]="currentBlog.description"
+                #_description="ngModel"
+                class="form-control"
+                placeholder="description"
+                row="2"
+                required
+              ></textarea>
+            </div>
+            <div
+              [hidden]="_description.valid || _description.pristine"
+              class="alert alert-danger"
+            >
+              Description is required
+            </div>
+            <br />
+            <button
+              type="submit"
+              class="btn btn-primary"
+              [disabled]="!editBlogForm.form.valid"
+            >
+              Edit Blog
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

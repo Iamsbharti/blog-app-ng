@@ -43,12 +43,19 @@ export class BlogHttpService {
     return createResponse;
   }
   //delete blog
-  ///:blogId/delete
   public deleteBlogService(blogId): any {
     let deleteResponse = this._http.post(
       `${this.baseUrl}/${blogId}/delete/?authToken=${this.authToken}`,
       blogId
     );
     return deleteResponse;
+  }
+  //edit blog
+  public editBlogService(blogId, editedBlog): any {
+    let editBlogResponse = this._http.put(
+      `${this.baseUrl}/${blogId}/edit?authToken=${this.authToken}`,
+      editedBlog
+    );
+    return editBlogResponse;
   }
 }

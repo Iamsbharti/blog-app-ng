@@ -12,6 +12,13 @@ export class BlogCreateComponent implements OnInit {
   public description: string;
   public blogBody: string;
   public category: string;
+  public allowedCategory: string[] = [
+    'Drama',
+    'Science',
+    'philosophy',
+    'Health',
+    'Space',
+  ];
   constructor(
     private bloghttpservice: BlogHttpService,
     private _Route: ActivatedRoute,
@@ -33,7 +40,7 @@ export class BlogCreateComponent implements OnInit {
         console.log('blog creataion sucessfull');
         let blogId = data['data'].blogId;
         console.log('navigating to ', blogId);
-        this._Router.navigate(['/viewblog/blogId']);
+        setTimeout(() => this._Router.navigate(['/viewblog', blogId]), 2000);
       },
       (error) => {
         console.warn(error.message);

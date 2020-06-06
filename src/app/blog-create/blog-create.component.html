@@ -1,32 +1,56 @@
 <div class="container">
   <div class="container-fluid">
     <div clas="row">
-      <div class="formBox col-sm-7">
-        <form>
+      <div class="formBox col-sm-8">
+        <form #createBlogForm="ngForm" (ngSubmit)="createBlog()">
           <div class="form-group">
             <label for="title">Title</label>
             <input
+              name="title"
+              [(ngModel)]="title"
+              #_title="ngModel"
               type="text"
               class="form-control"
               required
               placeholder="blog title"
             />
-            <label for="category">Category</label>
-            <select></select>
-            <label for="blogBody">Blog Body</label>
-            <textarea
-              class="form-control"
-              required
-              placeholder="blog body"
-              row="2"
-            ></textarea>
-            <label for="title">Description</label>
-            <textarea
-              class="form-control"
-              placeholder="description"
-              row="2"
-              required
-            ></textarea>
+            <div>
+              <label for="category">Category</label>
+              <select
+                class="form-control"
+                name="category"
+                [(ngModel)]="category"
+                #_category="ngModel"
+              >
+                <option *ngFor="let group of allowedCategory" [value]="group">{{
+                  group
+                }}</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="blogBody">Blog Body</label>
+              <textarea
+                name="blogBody"
+                [(ngModel)]="blogBody"
+                #_blogBody="ngModel"
+                class="form-control"
+                required
+                placeholder="blog body"
+                row="2"
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <label for="description">Description</label>
+              <textarea
+                name="description"
+                [(ngModel)]="description"
+                #_description="ngModel"
+                class="form-control"
+                placeholder="description"
+                row="2"
+                required
+              ></textarea>
+            </div>
             <br />
             <button type="submit" class="btn btn-primary">Post Blog</button>
           </div>

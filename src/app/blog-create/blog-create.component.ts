@@ -38,10 +38,10 @@ export class BlogCreateComponent implements OnInit {
     };
     this.bloghttpservice.createNewBlog(newBlog).subscribe(
       (data) => {
-        console.log(data);
-        console.log('blog creataion sucessfull');
+        //(data);
+        //console.log('blog creataion sucessfull');
         let blogId = data['data'].blogId;
-        console.log('navigating to ', blogId);
+        //console.log('navigating to ', blogId);
         this.toaster.open({ text: data['message'], type: 'dark' });
         setTimeout(() => this._Router.navigate(['/viewblog', blogId]), 2000);
       },

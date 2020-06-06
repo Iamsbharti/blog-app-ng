@@ -23,11 +23,11 @@ export class BlogViewComponent implements OnInit, OnDestroy {
   public _blogId: any;
   ngOnInit(): any {
     this._blogId = this._route.snapshot.paramMap.get('blogid');
-    console.log('blogid from navigation', this._blogId);
+    //console.log('blogid from navigation', this._blogId);
     //this.currentBlog = this.blogService.getSingleBlogDetails(blogId);
     this.currentBlog = this.httpBlogService.getBlogById(this._blogId).subscribe(
       (data) => {
-        console.log(data);
+        //console.log(data);
         this.currentBlog = data['data'];
         this.toaster.open({ text: this.currentBlog.title, type: 'success' });
       },
@@ -39,13 +39,13 @@ export class BlogViewComponent implements OnInit, OnDestroy {
   }
   //delete blog
   public deleteBlog(): any {
-    console.log('deleting ', this._blogId);
+    //console.log('deleting ', this._blogId);
     this.httpBlogService.deleteBlogService(this._blogId).subscribe(
       (data) => {
-        console.log(data);
-        console.log(data['message']);
+        //console.log(data);
+        //console.log(data['message']);
         let msg = data['message'];
-        console.log('opening toast');
+        //console.log('opening toast');
         this.toaster.open({ text: msg, type: 'success' });
         setTimeout(() => this._router.navigate(['/home']), 2000);
       },

@@ -27,10 +27,10 @@ export class BlogEditComponent implements OnInit {
   ngOnInit(): void {
     //get blogId from route
     this.blogId = this._route.snapshot.paramMap.get('blogid');
-    console.log('blogid', this.blogId);
+    //console.log('blogid', this.blogId);
     this.currentBlog = this.blogHttpService.getBlogById(this.blogId).subscribe(
       (data) => {
-        console.log('data', data);
+        //console.log('data', data);
         this.currentBlog = data['data'];
         this.toaster.open({ text: data.message, type: 'success' });
       },
@@ -47,7 +47,7 @@ export class BlogEditComponent implements OnInit {
       .editBlogService(this.blogId, this.currentBlog)
       .subscribe(
         (data) => {
-          console.log(data);
+          //console.log(data);
           this.toaster.open({ text: data.message, type: 'dark' });
           this._router.navigate(['/viewblog', this.blogId]);
         },

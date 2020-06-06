@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     //subscribe is used beacuse http client return obervable object equivalent to promises
     this.allBlogs = this.httpBlogService.getAllBlogs().subscribe(
       (data) => {
-        console.log(data);
+        //console.log(data);
         this.allBlogs = data['data'];
         this.toaster.open({ text: 'Blogs Loaded', type: 'warning' });
       },

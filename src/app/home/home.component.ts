@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { BlogService } from '../blog.service';
 import { BlogHttpService } from '../blog-http.service';
 import { error } from '@angular/compiler/src/util';
+import { Toaster, ToastConfig } from 'ngx-toast-notifications';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -10,7 +11,8 @@ import { error } from '@angular/compiler/src/util';
 export class HomeComponent implements OnInit, OnDestroy {
   constructor(
     private blogService: BlogService,
-    private httpBlogService: BlogHttpService
+    private httpBlogService: BlogHttpService,
+    private toaster: Toaster
   ) {}
   public allBlogs: any;
   ngOnInit(): any {
@@ -20,6 +22,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       (data) => {
         console.log(data);
         this.allBlogs = data['data'];
+        this.toaster.open({ text: 'Blogs Loaded', type: 'warning' });
       },
       (error) => {
         console.log('error fetching blogs', error.message);

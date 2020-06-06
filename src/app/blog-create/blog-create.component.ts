@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BlogHttpService } from '../blog-http.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Route } from '@angular/compiler/src/core';
+import { Toaster, ToastConfig } from 'ngx-toast-notifications';
 @Component({
   selector: 'app-blog-create',
   templateUrl: './blog-create.component.html',
@@ -22,7 +23,8 @@ export class BlogCreateComponent implements OnInit {
   constructor(
     private bloghttpservice: BlogHttpService,
     private _Route: ActivatedRoute,
-    private _Router: Router
+    private _Router: Router,
+    private toaster: Toaster
   ) {}
 
   ngOnInit(): void {}
@@ -40,6 +42,7 @@ export class BlogCreateComponent implements OnInit {
         console.log('blog creataion sucessfull');
         let blogId = data['data'].blogId;
         console.log('navigating to ', blogId);
+        this.toaster.open({ text: data['message'], type: 'dark' });
         setTimeout(() => this._Router.navigate(['/viewblog', blogId]), 2000);
       },
       (error) => {

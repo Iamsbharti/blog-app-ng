@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastNotificationsModule } from 'ngx-toast-notifications';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -24,7 +26,19 @@ import { BlogHttpService } from './blog-http.service';
     NotFoundComponent,
   ],
   //HttpClientModule is reuired for functioning of http requests
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    ToastNotificationsModule.forRoot({
+      duration: 2000,
+      type: 'primary',
+      autoClose: true,
+      position: 'top-right',
+    }),
+  ],
   providers: [BlogService, BlogHttpService],
   bootstrap: [AppComponent],
 })

@@ -76,7 +76,13 @@
               Description is required
             </div>
             <br />
-            <button type="submit" class="btn btn-primary">Post Blog</button>
+            <button
+              type="submit"
+              class="btn btn-primary"
+              [disabled]="!createBlogForm.form.valid"
+            >
+              Post Blog
+            </button>
           </div>
         </form>
       </div>

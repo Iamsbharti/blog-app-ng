@@ -35,7 +35,7 @@ export class BlogHttpService {
     return singleBlogResponse;
   }
   //create blog
-  public createBlog(newBlog): any {
+  public createNewBlog(newBlog): any {
     let createResponse = this._http.post(
       `this.baseUrl/create?authToken=${this.authToken}`,
       newBlog

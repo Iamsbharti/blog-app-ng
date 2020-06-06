@@ -37,6 +37,7 @@ export class BlogViewComponent implements OnInit, OnDestroy {
       (data) => {
         console.log(data);
         console.log(data['message']);
+        setTimeout(() => this._router.navigate(['/home']), 2000);
       },
       (error) => {
         console.warn(error.message);

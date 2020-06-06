@@ -14,6 +14,12 @@
               required
               placeholder="blog title"
             />
+            <div
+              [hidden]="_title.valid || _title.pristine"
+              class="alert alert-danger"
+            >
+              Title is Required
+            </div>
             <div>
               <label for="category">Category</label>
               <select
@@ -27,6 +33,12 @@
                 }}</option>
               </select>
             </div>
+            <div
+              [hidden]="_category.valid || _category.pristine"
+              class="alert alert-danger"
+            >
+              Category is Required
+            </div>
             <div class="form-group">
               <label for="blogBody">Blog Body</label>
               <textarea
@@ -39,6 +51,12 @@
                 row="2"
               ></textarea>
             </div>
+            <div
+              [hidden]="_blogBody.valid || _blogBody.pristine"
+              class="alert alert-danger"
+            >
+              Blog Body is required
+            </div>
             <div class="form-group">
               <label for="description">Description</label>
               <textarea
@@ -50,6 +68,12 @@
                 row="2"
                 required
               ></textarea>
+            </div>
+            <div
+              [hidden]="_description.valid || _description.pristine"
+              class="alert alert-danger"
+            >
+              Description is required
             </div>
             <br />
             <button type="submit" class="btn btn-primary">Post Blog</button>

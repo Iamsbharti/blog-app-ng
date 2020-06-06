@@ -27,6 +27,7 @@
                 name="category"
                 [(ngModel)]="category"
                 #_category="ngModel"
+                required
               >
                 <option *ngFor="let group of allowedCategory" [value]="group">{{
                   group

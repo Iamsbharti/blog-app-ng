@@ -42,4 +42,13 @@ export class BlogHttpService {
     );
     return createResponse;
   }
+  //delete blog
+  ///:blogId/delete
+  public deleteBlogService(blogId): any {
+    let deleteResponse = this._http.post(
+      `${this.baseUrl}/${blogId}/delete/?authToken=${this.authToken}`,
+      blogId
+    );
+    return deleteResponse;
+  }
 }

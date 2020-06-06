@@ -16,18 +16,30 @@ export class BlogViewComponent implements OnInit, OnDestroy {
     private httpBlogService: BlogHttpService
   ) {}
   public currentBlog: any;
-
+  public _blogId: any;
   ngOnInit(): any {
-    const blogId = this._route.snapshot.paramMap.get('blogid');
-    console.log('blogid from navigation', blogId);
+    this._blogId = this._route.snapshot.paramMap.get('blogid');
+    console.log('blogid from navigation', this._blogId);
     //this.currentBlog = this.blogService.getSingleBlogDetails(blogId);
-    this.currentBlog = this.httpBlogService.getBlogById(blogId).subscribe(
+    this.currentBlog = this.httpBlogService.getBlogById(this._blogId).subscribe(
       (data) => {
         console.log(data);
         this.currentBlog = data['data'];
       },
       (error) => {
         console.log('error', error.message);
+      }
+    );
+  }
+  public deleteBlog(): any {
+    console.log('deleting ', this._blogId);
+    this.httpBlogService.deleteBlogService(this._blogId).subscribe(
+      (data) => {
+        console.log(data);
+        console.log(data['message']);
+      },
+      (error) => {
+        console.warn(error.message);
       }
     );
   }

@@ -18,7 +18,7 @@
       </h6>
       <p class="blogbody">{{ currentBlog.description }}</p>
       <button class="btn btn-primary transparent">Edit</button>
-      <button class="btn btn-danger ml-4">Delete</button>
+      <button class="btn btn-danger ml-4" (click)="deleteBlog()">Delete</button>
       <a [routerLink]="['/home']"
         ><button class="btn btn-dark ml-5">Back</button></a
       >

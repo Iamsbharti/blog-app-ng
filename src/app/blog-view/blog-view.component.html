@@ -16,12 +16,16 @@
           >{{ tag }}{{ last ? "" : "," }}
         </span>
       </h6>
-      <p class="blogbody">{{ currentBlog.description }}</p>
-      <button class="btn btn-primary transparent">Edit</button>
-      <button class="btn btn-danger ml-4" (click)="deleteBlog()">Delete</button>
-      <a [routerLink]="['/home']"
-        ><button class="btn btn-dark ml-5">Back</button></a
+      <p class="blogbody">{{ currentBlog.bodyHtml }}</p>
+      <code style="color: rgb(148, 148, 26);">{{
+        currentBlog.description
+      }}</code
+      ><br />
+      <a [routerLink]="['/editblog/', currentBlog.blogId]"
+        ><button class="btn btn-primary transparent">Edit</button></a
       >
+      <button class="btn btn-danger ml-4" (click)="deleteBlog()">Delete</button>
+      <button class="btn btn-dark ml-5" (click)="navigateBack()">Back</button>
       <div class="date">
         <span class="text-muted"
           >Last edited on {{ currentBlog.created | date }}</span

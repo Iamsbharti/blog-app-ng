@@ -3,10 +3,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { BlogService } from '../blog.service';
 import { BlogHttpService } from '../blog-http.service';
 import { Toaster, ToastConfig } from 'ngx-toast-notifications';
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-blog-view',
   templateUrl: './blog-view.component.html',
   styleUrls: ['./blog-view.component.css'],
+  providers: [Location],
 })
 export class BlogViewComponent implements OnInit, OnDestroy {
   constructor(
@@ -14,7 +16,8 @@ export class BlogViewComponent implements OnInit, OnDestroy {
     private _router: Router,
     private blogService: BlogService,
     private httpBlogService: BlogHttpService,
-    private toaster: Toaster
+    private toaster: Toaster,
+    private location: Location
   ) {}
   public currentBlog: any;
   public _blogId: any;
@@ -34,6 +37,7 @@ export class BlogViewComponent implements OnInit, OnDestroy {
       }
     );
   }
+  //delete blog
   public deleteBlog(): any {
     console.log('deleting ', this._blogId);
     this.httpBlogService.deleteBlogService(this._blogId).subscribe(
@@ -50,6 +54,10 @@ export class BlogViewComponent implements OnInit, OnDestroy {
         console.warn(error.message);
       }
     );
+  }
+  //navigateBack
+  public navigateBack() {
+    this.location.back();
   }
   ngOnDestroy(): any {
     console.log('BlogView Component destroyed');
